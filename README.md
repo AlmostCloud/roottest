@@ -1,4 +1,4 @@
-# Foxytoux Installer
+# Yuty AlmostMC Installer
 
 ## Overview
 
@@ -16,7 +16,7 @@ This shell script is designed to automate the installation of Foxytoux, a lightw
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/foxytouxxx/freeroot.git
+    git clone https://github.com/AlmostCloud/freeroot.git
     cd freeroot
     ```
 
