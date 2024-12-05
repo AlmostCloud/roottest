@@ -20,21 +20,21 @@ fi
 if [ ! -e $ROOTFS_DIR/.installed ]; then
   echo "#######################################################################################"
   echo "#"
-  echo "#                                      Yuty AlmostMC INSTALLER"
+  echo "#                                      Yuty - AlmsotMC INSTALLER"
   echo "#"
-  echo "#                           Copyright (C) 2024, AlmostMC"
+  echo "#                                     Copyright (C) 2024, AlmostMC"
   echo "#"
   echo "#"
   echo "#######################################################################################"
 
-  read -p "Do you want to install Ubuntu? (YES/no): " install_ubuntu
+  read -p "Bạn muốn tải Ubuntu 22.04? (YES/no): " install_ubuntu
 fi
 
-# Cài đặt Ubuntu nếu người dùng chọn YES
+# Cài đặt Ubuntu 22.04 nếu người dùng chọn YES
 case $install_ubuntu in
   [yY][eE][sS])
     wget --tries=$max_retries --timeout=$timeout --no-hsts -O /tmp/rootfs.tar.gz \
-      "http://cdimage.ubuntu.com/ubuntu-base/releases/20.04/release/ubuntu-base-20.04.4-base-${ARCH_ALT}.tar.gz"
+      "http://cdimage.ubuntu.com/ubuntu-base/releases/22.04/release/ubuntu-base-22.04.2-base-${ARCH_ALT}.tar.gz"
     tar -xf /tmp/rootfs.tar.gz -C $ROOTFS_DIR
     ;;
   *)
@@ -96,7 +96,7 @@ RESET_COLOR='\e[0m'
 display_gg() {
   echo -e "${WHITE}___________________________________________________${RESET_COLOR}"
   echo -e ""
-  echo -e "           ${CYAN}-----> Mission Completed! <----${RESET_COLOR}"
+  echo -e "           ${CYAN}-----> Hoàn Thành! <----${RESET_COLOR}"
 }
 
 clear
