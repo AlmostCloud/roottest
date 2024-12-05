@@ -2,22 +2,22 @@
 
 ## Overview
 
-This shell script is designed to automate the installation of Foxytoux, a lightweight Ubuntu environment using Proot.
+Tập lệnh shell này được thiết kế để tự động cài đặt Foxytoux, một môi trường Ubuntu nhẹ sử dụng Proot.
 
 ## Prerequisites
 
-- Bash shell environment
-- Internet connectivity
-- Wget installed
-- Supported CPU architecture: x86_64 (amd64) or aarch64 (arm64)
+- Môi trường shell Bash
+- Kết nối Internet
+- Cài đặt Wget
+- Kiến trúc CPU được hỗ trợ: x86_64 (amd64) hoặc aarch64 (arm64)
 
 ## Installation
 
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/AlmostCloud/freeroot.git
-    cd freeroot
+    git clone https://github.com/AlmostCloud/root.git
+    cd root
     ```
 
 2. Run the installer script:
@@ -34,16 +34,3 @@ This shell script is designed to automate the installation of Foxytoux, a lightw
 
 - x86_64 (amd64)
 - aarch64 (arm64)
-
-## License
-
-This Foxytoux Installer script is released under the [MIT License](LICENSE).
-
-## Credits
-
-Foxytoux Installer is developed and maintained by RecodeStudios.Cloud.
-This installer has been made possible thanks to [dxomg](https://github.com/dxomg) for his proot code
-
----
-
-**Note:** This script is intended for educational and experimental purposes. Use it responsibly and at your own risk.
