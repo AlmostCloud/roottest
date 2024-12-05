@@ -20,9 +20,9 @@ fi
 if [ ! -e $ROOTFS_DIR/.installed ]; then
   echo "#######################################################################################"
   echo "#"
-  echo "#                                      Foxytoux INSTALLER"
+  echo "#                                      Yuty AlmostMC INSTALLER"
   echo "#"
-  echo "#                           Copyright (C) 2024, RecodeStudios.Cloud"
+  echo "#                           Copyright (C) 2024, AlmostMC"
   echo "#"
   echo "#"
   echo "#######################################################################################"
