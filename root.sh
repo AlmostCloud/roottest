@@ -30,9 +30,9 @@ if [ ! -e $ROOTFS_DIR/.installed ]; then
   clear
   echo -e "${CYAN}###########################################################################################${RESET_COLOR}"
   echo -e "${CYAN}#${RESET_COLOR}"
-  echo -e "${CYAN}#       ${BOLD}${UNDERLINE}Yuty - AlmostMC${RESET_COLOR} ${CYAN}#${RESET_COLOR}"
+  echo -e "${CYAN}#              ${BOLD}${UNDERLINE}Yuty - AlmostMC${RESET_COLOR} ${CYAN}#${RESET_COLOR}"
   echo -e "${CYAN}#${RESET_COLOR}"
-  echo -e "${CYAN}#                  Copyright (C) 2024, AlmostMC${RESET_COLOR}"
+  echo -e "${CYAN}#                Copyright (C) 2024, AlmostMC${RESET_COLOR}"
   echo -e "${CYAN}#${RESET_COLOR}"
   echo -e "${CYAN}###########################################################################################${RESET_COLOR}"
   echo -e "${WHITE}Chương trình cài đặt Ubuntu 22.04 đã sẵn sàng.${RESET_COLOR}"
