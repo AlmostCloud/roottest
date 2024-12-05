@@ -33,17 +33,23 @@ fi
 # Cài đặt Ubuntu 22.04 nếu người dùng chọn YES
 case $install_ubuntu in
   [yY][eE][sS])
+    echo "Tải Ubuntu 22.04 base image..."
     wget --tries=$max_retries --timeout=$timeout --no-hsts -O /tmp/rootfs.tar.gz \
       "http://cdimage.ubuntu.com/ubuntu-base/releases/22.04/release/ubuntu-base-22.04.2-base-${ARCH_ALT}.tar.gz"
+    if [ $? -ne 0 ]; then
+      echo "Lỗi tải Ubuntu base image, vui lòng thử lại sau."
+      exit 1
+    fi
     tar -xf /tmp/rootfs.tar.gz -C $ROOTFS_DIR
     ;;
   *)
-    echo "Skipping Ubuntu installation."
+    echo "Bỏ qua cài đặt Ubuntu."
     ;;
 esac
 
 # Cài đặt PRoot nếu chưa có
 if [ ! -e $ROOTFS_DIR/.installed ]; then
+  echo "Cài đặt PRoot..."
   mkdir -p $ROOTFS_DIR/usr/local/bin
   wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/proot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/proot-${ARCH}"
 
@@ -56,6 +62,7 @@ if [ ! -e $ROOTFS_DIR/.installed ]; then
       break
     fi
 
+    echo "Đang thử lại tải PRoot..."
     sleep 1
   done
 
@@ -64,7 +71,7 @@ fi
 
 # Cấu hình DNS nếu chưa có
 if [ ! -e $ROOTFS_DIR/.installed ]; then
-  printf "nameserver 1.1.1.1\nnameserver 1.0.0.1" > ${ROOTFS_DIR}/etc/resolv.conf
+  echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" > ${ROOTFS_DIR}/etc/resolv.conf
   rm -rf /tmp/rootfs.tar.xz /tmp/sbin
   touch $ROOTFS_DIR/.installed
 fi
@@ -72,19 +79,24 @@ fi
 # Kiểm tra Docker và Systemctl
 check_docker() {
   if command -v docker >/dev/null 2>&1; then
-    echo "Docker is installed, ready to use."
+    echo "Docker đã được cài đặt, sẵn sàng sử dụng."
   else
-    echo "Docker is not installed, installing..."
+    echo "Docker chưa được cài đặt, đang cài đặt..."
     curl -fsSL https://get.docker.com -o get-docker.sh
-    sh get-docker.sh
+    if [ $? -eq 0 ]; then
+      sh get-docker.sh
+    else
+      echo "Lỗi khi cài đặt Docker. Vui lòng kiểm tra kết nối mạng hoặc quyền truy cập."
+      exit 1
+    fi
   fi
 }
 
 check_systemctl() {
   if command -v systemctl >/dev/null 2>&1; then
-    echo "Systemctl is available."
+    echo "Systemctl có sẵn."
   else
-    echo "Systemctl not available. You may need root privileges or use Docker to start services."
+    echo "Systemctl không có sẵn. Bạn có thể cần quyền root hoặc sử dụng Docker để khởi động các dịch vụ."
   fi
 }
 
