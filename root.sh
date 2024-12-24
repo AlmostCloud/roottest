@@ -68,24 +68,6 @@ if [ ! -e $ROOTFS_DIR/.installed ]; then
   rm -rf /tmp/rootfs.tar.xz /tmp/sbin
   touch $ROOTFS_DIR/.installed
 fi
-
-# Kiểm tra Docker và Systemctl
-check_docker() {
-  if command -v docker >/dev/null 2>&1; then
-    echo "Docker đã được cài đặt và sẵn sàng sử dụng."
-  else
-    echo "Docker chưa được cài đặt, đang cài đặt."
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sh get-docker.sh
-  fi
-}
-
-check_systemctl() {
-  if command -v systemctl >/dev/null 2>&1; then
-    echo "Systemctl hiện đã có sẵn."
-  else
-    echo "Systemctl không khả dụng. Bạn có thể cần quyền root hoặc sử dụng Docker để khởi động dịch vụ."
-  fi
 }
 
 # Cấu hình hiển thị
@@ -103,9 +85,6 @@ clear
 display_gg
 
 # Kiểm tra Docker và Systemctl
-check_docker
-check_systemctl
-
 # Sử dụng PRoot để chạy hệ thống chroot hoặc docker container
 $ROOTFS_DIR/usr/local/bin/pro
 ot \
