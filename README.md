@@ -1,3 +1,4 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AlmostCloud/roottest/HEAD)
 # Yuty AlmostMC Installer
 
 ## Overview
