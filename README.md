@@ -17,7 +17,7 @@ Tập lệnh shell này được thiết kế để tự động cài đặt Fox
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/AlmostCloud/root.git
+    git clone https://github.com/AlmostCloud/roottest.git
     cd root
     ```
 
